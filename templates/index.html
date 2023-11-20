@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to My Flask App</title>
+</head>
+<body>
+    <h1>Predict QQQ movement: {{ qqq_pred }} </h1>
+    <h4> Recent QQQ price </h4>
+    <p>{{ qqq_table | safe }}</p>
+    <hr>
+    <h1>Predict SPY movement: {{ spy_pred }} </h1>
+    <h4> Recent SPY price </h4>
+    <p>{{ spy_table | safe }}</p>
+    <hr>
+</body>
+</html>
