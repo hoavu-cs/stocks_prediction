@@ -4,6 +4,9 @@ import xgboost as xgb
 import yfinance as yahooFinance
 import pandas as pd
 import numpy as np
+import os
+
+my_dir = os.path.dirname(__file__)
 
 def get_prediction(ticker):
     history = yahooFinance.Ticker(ticker)
@@ -14,6 +17,7 @@ def get_prediction(ticker):
     data['day_of_year'] = data['Date'].dt.dayofyear
 
     model = xgb.XGBClassifier()
+    model_path = os.path.join(my_dir, 'xgb_model_classification_' + ticker + '.json')
     model.load_model('xgb_model_classification_' + ticker + '.json')
 
     N = len(data)
